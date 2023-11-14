@@ -1,0 +1,9 @@
+{
+	"name": "adfprojekt",
+	"location": "westeurope",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "9f533632-25c5-4c56-b381-3fcd33710b1e",
+		"tenantId": "1d21961a-fac3-4f82-8f2b-1ed687308c9f"
+	}
+}

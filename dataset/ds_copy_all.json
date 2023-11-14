@@ -1,0 +1,13 @@
+{
+	"name": "ds_copy_all",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_on_prem",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

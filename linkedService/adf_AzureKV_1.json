@@ -1,0 +1,11 @@
+{
+	"name": "adf_AzureKV_1",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "AzureKeyVault",
+		"typeProperties": {
+			"baseUrl": "https://on-prem-kv.vault.azure.net/"
+		}
+	}
+}
