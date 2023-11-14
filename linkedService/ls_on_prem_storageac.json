@@ -1,0 +1,11 @@
+{
+	"name": "ls_on_prem_storageac",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "AzureBlobFS",
+		"typeProperties": {
+			"url": "https://onpremsqlsa.dfs.core.windows.net/"
+		}
+	}
+}

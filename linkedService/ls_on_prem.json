@@ -1,0 +1,23 @@
+{
+	"name": "ls_on_prem",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "SqlServer",
+		"typeProperties": {
+			"connectionString": "Integrated Security=False;Data Source=localhost;Initial Catalog=AdventureWorksLT2017;User ID=ONPREM_AZURE",
+			"password": {
+				"type": "AzureKeyVaultSecret",
+				"store": {
+					"referenceName": "adf_AzureKV_1",
+					"type": "LinkedServiceReference"
+				},
+				"secretName": "onprem-azure-ssms"
+			}
+		},
+		"connectVia": {
+			"referenceName": "shir-on-prem",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}
