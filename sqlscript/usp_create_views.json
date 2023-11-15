@@ -1,0 +1,17 @@
+{
+	"name": "usp_create_views",
+	"properties": {
+		"content": {
+			"query": "USE gold_db\nGO\n\nCREATE OR ALTER PROCEDURE CreateGoldViews @ViewName nvarchar(100)\nAS \nBEGIN\n\nDECLARE @statement VARCHAR(MAX)\n\n\tSET @statement = N'CREATE OR ALTER VIEW ' + @ViewName + ' AS\n\t\t\t\tSELECT * FROM  \n                    OPENROWSET(\n                    BULK ''abfss://gold@onpremsqlsa.dfs.core.windows.net/SalesLT/' + @ViewName + '/'' ,\n                    FORMAT = ''DELTA''\n\t\t\t\t) as [result]\n\t\t\t'\n\n\t\t\t\t\nEXEC (@statement)\n\t\t\t\nEND\nGO",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "gold_db",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}

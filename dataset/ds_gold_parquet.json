@@ -1,0 +1,58 @@
+{
+	"name": "ds_gold_parquet",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "on-premws-WorkspaceDefaultStorage",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": "SalesLT",
+				"fileSystem": "gold"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": [
+			{
+				"name": "Address_ID",
+				"type": "INT32"
+			},
+			{
+				"name": "Address_Line1",
+				"type": "UTF8"
+			},
+			{
+				"name": "Address_Line2",
+				"type": "UTF8"
+			},
+			{
+				"name": "City",
+				"type": "UTF8"
+			},
+			{
+				"name": "StateProvince",
+				"type": "UTF8"
+			},
+			{
+				"name": "CountryRegion",
+				"type": "UTF8"
+			},
+			{
+				"name": "PostalCode",
+				"type": "UTF8"
+			},
+			{
+				"name": "rowguid",
+				"type": "UTF8"
+			},
+			{
+				"name": "ModifiedDate",
+				"type": "UTF8"
+			}
+		]
+	},
+	"type": "Microsoft.Synapse/workspaces/datasets"
+}
