@@ -112,10 +112,64 @@
 						}
 					]
 				}
+			},
+			{
+				"name": "Bronze to Silver",
+				"type": "DatabricksNotebook",
+				"dependsOn": [
+					{
+						"activity": "ForEach Table",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": "/Shared/Transform to silver"
+				},
+				"linkedServiceName": {
+					"referenceName": "on_prem_databricks1",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "Silver to Gold",
+				"type": "DatabricksNotebook",
+				"dependsOn": [
+					{
+						"activity": "Bronze to Silver",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": "/Shared/Silver to Gold transform"
+				},
+				"linkedServiceName": {
+					"referenceName": "on_prem_databricks1",
+					"type": "LinkedServiceReference"
+				}
 			}
 		],
 		"annotations": [],
-		"lastPublishTime": "2023-11-14T12:49:34Z"
+		"lastPublishTime": "2023-11-15T10:30:30Z"
 	},
 	"type": "Microsoft.DataFactory/factories/pipelines"
 }
